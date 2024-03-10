@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
-import SidebarItem from '../SidebarItem'
 
 import './index.css'
 
@@ -58,7 +57,7 @@ const HeadingInput = props => {
     <input
       type="text"
       value={data.heading}
-      className="heading-input"
+      className="heading-input input-active"
       onChange={changeHeading}
       onBlur={changeHeadingType}
       id={data.id}
@@ -75,7 +74,7 @@ const DescriptionInput = props => {
     <input
       type="text"
       value={data.description}
-      className="description-input"
+      className="description-input input-active"
       onChange={changeDescription}
       onBlur={changeDescriptionType}
       id={data.id}
@@ -93,6 +92,38 @@ const Navbar = () => (
     <h1 className="navbar-heading">Nxt Slides</h1>
   </nav>
 )
+
+const SidebarItem = props => {
+  const {eachitem, selectedItem, onChangeSlideItem} = props
+  const isItemSelected = eachitem.id === selectedItem
+  const applyClass = isItemSelected === true ? 'apply-selected-class' : ''
+  const slideNumber = eachitem.slide_no
+  const selectOption = () => {
+    onChangeSlideItem(eachitem.id)
+  }
+
+  return (
+    <div className={`list-item ${applyClass}`}>
+      <p className="slide-item-id">{eachitem.slide_no}</p>
+      <li
+        id={eachitem.id}
+        testid={`slideTab${slideNumber}`}
+        className="tab-item"
+      >
+        <button className="slide-item" type="button" onClick={selectOption}>
+          <div className="slide-item-content-card">
+            <h1 className="slide-item-content-card-heading">
+              {eachitem.heading}
+            </h1>
+            <p className="slide-item-content-card-description">
+              {eachitem.description}
+            </p>
+          </div>
+        </button>
+      </li>
+    </div>
+  )
+}
 
 class HomePage extends Component {
   state = {
@@ -118,20 +149,21 @@ class HomePage extends Component {
       description: 'Description',
       slide_no: getSlideItem[0].slide_no + 1,
     }
-    const modifiedListOne = slidesList.map(eachitem => {
+    const modifiedList = slidesList.map(eachitem => {
       if (eachitem.slide_no >= newSlideItem.slide_no) {
         const updatedData = {...eachitem, slide_no: eachitem.slide_no + 1}
         return updatedData
       }
       return eachitem
     })
-    const index = modifiedListOne.findIndex(
+    const spliceIndex = modifiedList.findIndex(
       eachitem => eachitem.id === getSlideItem[0].id,
     )
-    console.log(index)
-    modifiedListOne.splice(index + 1, 0, newSlideItem)
-    console.log(modifiedListOne)
-    this.setState({slidesList: modifiedListOne, selectedItem: newSlideItem.id})
+    modifiedList.splice(spliceIndex + 1, 0, newSlideItem)
+    this.setState({
+      slidesList: [...modifiedList],
+      selectedItem: newSlideItem.id,
+    })
   }
 
   onChangeHeadingInput = (event, id) => {
@@ -196,7 +228,6 @@ class HomePage extends Component {
             className="add-new-slide-button"
             type="button"
             onClick={this.onAddNewSlide}
-            testid="New"
           >
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-slides/nxt-slides-plus-icon.png"
