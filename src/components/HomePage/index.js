@@ -103,13 +103,13 @@ const SidebarItem = props => {
   }
 
   return (
-    <div className={`list-item ${applyClass}`}>
+    <li
+      className={`list-item ${applyClass}`}
+      testid={`slideTab${slideNumber}`}
+      style={{padding: '0px 0px 0px 0px'}}
+    >
       <p className="slide-item-id">{eachitem.slide_no}</p>
-      <li
-        id={eachitem.id}
-        testid={`slideTab${slideNumber}`}
-        className="tab-item"
-      >
+      <div id={eachitem.id} className="tab-item">
         <button className="slide-item" type="button" onClick={selectOption}>
           <div className="slide-item-content-card">
             <h1 className="slide-item-content-card-heading">
@@ -120,8 +120,8 @@ const SidebarItem = props => {
             </p>
           </div>
         </button>
-      </li>
-    </div>
+      </div>
+    </li>
   )
 }
 
@@ -163,6 +163,8 @@ class HomePage extends Component {
     this.setState({
       slidesList: [...modifiedList],
       selectedItem: newSlideItem.id,
+      isHeadingElementSelected: false,
+      isDescriptionElementSelected: false,
     })
   }
 
