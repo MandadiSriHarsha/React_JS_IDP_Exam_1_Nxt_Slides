@@ -3,45 +3,43 @@
   width: 100%;
   font-family: 'Bree Serif';
   color: #0f172a;
-  padding: 20px 15px 20px 15px;
+  padding: 15px 10px 15px 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .navbar-logo {
-  height: 40px;
-  width: 55px;
-  padding: 0px 0px 0px 0px;
+  height: 28px;
+  width: 30px;
+  padding: 5px 5px 5px 5px;
   margin: 0px 15px 0px 0px;
 }
 
 @media screen and (min-width: 992px) {
   .navbar-logo {
-    height: 50px;
-    width: 65px;
+    height: 30px;
+    width: 45px;
   }
 }
 
 .navbar-heading {
-  font-size: 25px;
+  font-size: 18px;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
 
 @media screen and (min-width: 992px) {
   .navbar-heading {
-    font-size: 35px;
+    font-size: 20px;
   }
 }
 
 .home-page-bg-container {
   height: 100vh;
   max-height: 100vh;
-  width: 95%;
-  max-width: 1500px;
-  margin: auto;
-  padding: 20px 10px 20px 10px;
+  width: 100%;
+  padding: 0px 0px 10px 0px;
 }
 
 .add-new-slide-button {
@@ -54,33 +52,33 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 20px 0px 20px 0px;
+  margin: 15px 0px 15px 15px;
   color: #0f172a;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'Bree Serif';
 }
 
 .add-new-slide-button:hover {
-  border: 1px solid #0967d2;
+  border: 2px solid #84cdfa;
 }
 
 @media screen and (min-width: 992px) {
   .add-new-slide-button {
-    font-size: 23px;
+    font-size: 18px;
   }
 }
 
 .plus-icon {
-  height: 20px;
-  width: 20px;
+  height: 14px;
+  width: 14px;
   margin: 0px 10px 0px 0px;
   padding: 0px 0px 0px 0px;
 }
 
 @media screen and (min-width: 1200px) {
   .plus-icon {
-    height: 23px;
-    width: 23px;
+    height: 16px;
+    width: 16px;
   }
 }
 
@@ -89,15 +87,19 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 0px;
 }
 
 .sidebar {
-  width: 30%;
+  width: 33%;
   max-width: 350px;
-  height: 80%;
+  height: 95%;
   overflow-y: auto;
   list-style-type: none;
+  margin: 0px 10px 0px 0px;
+  padding: 0px 8px 0px 0px;
 }
 
 .slide-item {
@@ -110,6 +112,7 @@
   font-family: 'Bree Serif';
   cursor: pointer;
   outline: none;
+  padding: 10px 10px 10px 10px;
 }
 
 .tab-item {
@@ -117,20 +120,22 @@
 }
 
 .slide-item-id {
-  font-size: 20px;
+  font-size: 16px;
   padding: 0px 0px 0px 0px;
-  margin: 10px 20px 0px 0px;
+  margin: 10px 10px 0px 13px;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 992px) {
   .slide-item-id {
-    font-size: 23px;
+    font-size: 18px;
   }
 }
 
 .list-item {
-  padding: 15px 10px 15px 10px;
-  margin: 0px 15px 20px 0px;
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  margin: 0px 0px 15px 0px;
   cursor: pointer;
   outline: none;
   display: flex;
@@ -139,8 +144,9 @@
 
 .apply-selected-class {
   background-color: #dbeafe;
-  border-radius: 10px;
-  border: 2px solid #0967d2;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px solid #84cdfa;
 }
 
 .slide-item-content-card {
@@ -150,6 +156,7 @@
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px 10px 20px 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .slide-item-content-card-heading {
@@ -178,8 +185,9 @@
 
 .mainbar {
   height: 80%;
-  width: 90%;
-  max-width: 700px;
+  width: 65%;
+  max-width: 1000px;
+  flex-grow: 1;
   margin: auto;
   align-self: flex-start;
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-slides/nxt-slides-bg.png');
@@ -189,7 +197,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0px 0px 0px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0px 10px 0px 10px;
 }
 
 .heading-input {
@@ -197,12 +206,14 @@
   font-size: 25px;
   border: none;
   padding: 20px 10px 20px 10px;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 15px 0px;
   color: #0967d2;
   text-align: center;
   background: none;
   font-family: 'Bree Serif' !important;
   outline: none !important;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 @media screen and (min-width: 992px) {
@@ -212,8 +223,10 @@
 }
 
 .description-input {
+  border-radius: 8px;
   width: 90%;
   font-size: 23px;
+  cursor: pointer;
   border: none;
   padding: 20px 10px 20px 10px;
   margin: 0px 0px 20px 0px;
